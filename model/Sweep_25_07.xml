@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<MorpheusModel version="4">
+    <Description>
+        <Details></Details>
+        <Title></Title>
+    </Description>
+    <Space>
+        <Lattice class="square">
+            <Neighborhood>
+                <Order>1</Order>
+            </Neighborhood>
+            <Size symbol="size" value="5, 6,   0.0"/>
+        </Lattice>
+        <SpaceSymbol symbol="space"/>
+    </Space>
+    <Time>
+        <StartTime value="0"/>
+        <StopTime value="100"/>
+        <TimeSymbol symbol="time"/>
+    </Time>
+    <Analysis>
+        <ModelGraph format="dot" reduced="false" include-tags="#untagged"/>
+        <Gnuplotter name="V_i" time-step="100">
+            <Plot title="V_i">
+                <Cells value="V_i">
+                    <ColorMap>
+                        <Color color="gray" value="0"/>
+                        <Color color="green" value="1"/>
+                    </ColorMap>
+                </Cells>
+            </Plot>
+            <Terminal name="png"/>
+        </Gnuplotter>
+        <Gnuplotter name="V_n" time-step="100">
+            <Plot title="V_n">
+                <Cells value="V_n">
+                    <ColorMap>
+                        <Color color="gray" value="0"/>
+                        <Color color="blue" value="1"/>
+                    </ColorMap>
+                </Cells>
+            </Plot>
+            <Terminal name="png"/>
+        </Gnuplotter>
+        <Gnuplotter name="V_e" time-step="100">
+            <Plot title="V_e">
+                <Field symbol-ref="V_e">
+                    <ColorMap>
+                        <Color color="white" value="0"/>
+                        <Color color="red" value="1"/>
+                    </ColorMap>
+                </Field>
+            </Plot>
+            <Terminal name="png"/>
+        </Gnuplotter>
+        <Logger name="V_grid" time-step="1.0">
+            <Input>
+                <Symbol symbol-ref="V"/>
+                <Symbol symbol-ref="space.x"/>
+                <Symbol symbol-ref="space.y"/>
+            </Input>
+            <Output>
+                <TextOutput/>
+            </Output>
+        </Logger>
+        <Logger name="cell_prop" time-step="1.0">
+            <Input>
+                <Symbol symbol-ref="cell.center.x"/>
+                <Symbol symbol-ref="cell.center.y"/>
+                <Symbol symbol-ref="cell.type"/>
+                <Symbol symbol-ref="V"/>
+                <Symbol symbol-ref="V_i"/>
+                <Symbol symbol-ref="V_n"/>
+                <Symbol symbol-ref="inf_by"/>
+            </Input>
+            <Output>
+                <TextOutput/>
+            </Output>
+        </Logger>
+        <ContactLogger time-step="1.0"/>
+        <Logger name="populations" time-step="1.0">
+            <Input>
+                <Symbol symbol-ref="celltype.target.size"/>
+                <Symbol symbol-ref="celltype.infected.size"/>
+            </Input>
+            <Output>
+                <TextOutput/>
+            </Output>
+        </Logger>
+        <Logger time-step="1.0">
+            <Input>
+                <Symbol symbol-ref="b_cf"/>
+                <Symbol symbol-ref="b_c2c"/>
+                <Symbol symbol-ref="c_V"/>
+                <Symbol symbol-ref="p_i"/>
+                <Symbol symbol-ref="D_V"/>
+            </Input>
+            <Output>
+                <TextOutput/>
+            </Output>
+        </Logger>
+    </Analysis>
+    <Global>
+        <Constant symbol="b_cf" value="0.0"/>
+        <Constant symbol="b_c2c" value="0.0"/>
+        <Constant symbol="c_V" value="0.0"/>
+        <Constant symbol="p_i" value="0.0"/>
+        <Constant symbol="D_V" value="0.5"/>
+        <Constant symbol="V_i" value="0.0"/>
+        <Constant symbol="V" value="0.0"/>
+        <Field symbol="V_e" value="0.0">
+            <Diffusion rate="0.5" well-mixed="false"/>
+        </Field>
+        <System solver="Dormand-Prince [adaptive, O(5)]">
+            <DiffEqn symbol-ref="V_e">
+                <Expression>p_i*V*start - c_V*V_e</Expression>
+            </DiffEqn>
+        </System>
+        <Event>
+            <Condition>time >= 10</Condition>
+            <Rule symbol-ref="start">
+                <Expression>1</Expression>
+            </Rule>
+        </Event>
+        <Variable symbol="start" value="0" name=""/>
+    </Global>
+    <CellTypes>
+        <CellType class="biological" name="target">
+            <VolumeConstraint target="3" strength="1"/>
+            <SurfaceConstraint target="1" strength="1" mode="aspherity"/>
+            <ConnectivityConstraint/>
+            <Property symbol="V" value="0"/>
+            <Property symbol="V_i" value="0"/>
+            <Property symbol="V_n" value="0"/>
+            <Mapper name="extracellular viral load">
+                <Input value="V_e"/>
+                <Output mapping="average" symbol-ref="V_i"/>
+            </Mapper>
+            <NeighborhoodReporter>
+                <Input scaling="length" noflux-cell-medium="true" value="V"/>
+                <Output mapping="average" symbol-ref="V_n"/>
+            </NeighborhoodReporter>
+            <ChangeCellType newCellType="infected" name="extracellular infection" time-step="1">
+                <Condition>rand_uni(0,1) &lt;= p_cf</Condition>
+                <Triggers>
+                    <Rule symbol-ref="V">
+                        <Expression>1</Expression>
+                    </Rule>
+                    <Rule symbol-ref="inf_by">
+                        <Expression>0</Expression>
+                    </Rule>
+                </Triggers>
+            </ChangeCellType>
+            <Function symbol="p_cf">
+                <Expression>1-exp(-b_cf*V_i*start)</Expression>
+            </Function>
+            <Function symbol="p_c2c">
+                <Expression>1-exp(-b_c2c*V_n*start)</Expression>
+            </Function>
+            <ChangeCellType newCellType="infected" name="cell2cell infection" time-step="1">
+                <Condition>rand_uni(0,1) &lt;= p_c2c</Condition>
+                <Triggers>
+                    <Rule symbol-ref="V">
+                        <Expression>1</Expression>
+                    </Rule>
+                    <Rule symbol-ref="inf_by">
+                        <Expression>1</Expression>
+                    </Rule>
+                </Triggers>
+            </ChangeCellType>
+            <Property symbol="inf_by" value="0.0"/>
+            <FreezeMotion>
+                <Condition>start == 1</Condition>
+            </FreezeMotion>
+        </CellType>
+        <CellType class="biological" name="infected">
+            <VolumeConstraint target="3" strength="1"/>
+            <SurfaceConstraint target="1" strength="1" mode="aspherity"/>
+            <ConnectivityConstraint/>
+            <Property symbol="V" value="1"/>
+            <Property symbol="V_i" value="0"/>
+            <Property symbol="V_n" value="0"/>
+            <Mapper name="extracellular viral load">
+                <Input value="V_e"/>
+                <Output mapping="sum" symbol-ref="V_i"/>
+            </Mapper>
+            <NeighborhoodReporter>
+                <Input scaling="length" noflux-cell-medium="true" value="V"/>
+                <Output mapping="average" symbol-ref="V_n"/>
+            </NeighborhoodReporter>
+            <Property symbol="inf_by" value="0.0"/>
+            <FreezeMotion>
+                <Condition>start == 1</Condition>
+            </FreezeMotion>
+        </CellType>
+    </CellTypes>
+    <CPM>
+        <Interaction/>
+        <ShapeSurface scaling="norm">
+            <Neighborhood>
+                <Order>6</Order>
+            </Neighborhood>
+        </ShapeSurface>
+        <MonteCarloSampler stepper="edgelist">
+            <MCSDuration value="1"/>
+            <MetropolisKinetics temperature="1"/>
+            <Neighborhood>
+                <Order>2</Order>
+            </Neighborhood>
+        </MonteCarloSampler>
+    </CPM>
+    <CellPopulations>
+        <Population type="target" name="target" size="9">
+            <InitDistribute number-of-cells="9" probability="1" mode="random"/>
+        </Population>
+        <Population type="infected" name="infected" size="1">
+            <InitDistribute number-of-cells="1" probability="1" mode="random"/>
+        </Population>
+    </CellPopulations>
+</MorpheusModel>
