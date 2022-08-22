@@ -1,0 +1,300 @@
+digraph {
+compound=true;
+subgraph cluster{
+labelloc="t";label="Global";bgcolor="#2341782f"
+node[style=filled,fillcolor="#fffea3"]
+CPM_0_1 [shape=plaintext, label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3">  <tr><td>CPM</td></tr><hr/><tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/CPM" ]
+Gnuplotter_0_409846930772644971_100[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Gnuplotter</td></tr>
+<tr><td><I>"V_i"</I></td></tr>
+<hr/>
+<tr><td>100</td></tr></table></font>>, URL="morph://MorpheusModel/Analysis/Gnuplotter[0]" ]
+Gnuplotter_0_15945025652386054446_100[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Gnuplotter</td></tr>
+<tr><td><I>"V_n"</I></td></tr>
+<hr/>
+<tr><td>100</td></tr></table></font>>, URL="morph://MorpheusModel/Analysis/Gnuplotter[1]" ]
+Gnuplotter_0_11153385986722193613_100[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Gnuplotter</td></tr>
+<tr><td><I>"V_e"</I></td></tr>
+<hr/>
+<tr><td>100</td></tr></table></font>>, URL="morph://MorpheusModel/Analysis/Gnuplotter[2]" ]
+Logger_0_17556842240353386004_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Logger</td></tr>
+<tr><td><I>"V_grid"</I></td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/Analysis/Logger[0]" ]
+Logger_0_6327180780047972750_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Logger</td></tr>
+<tr><td><I>"cell_prop"</I></td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/Analysis/Logger[1]" ]
+ContactLogger_0_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>ContactLogger</td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/Analysis/ContactLogger" ]
+Logger_0_17325486187087234701_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Logger</td></tr>
+<tr><td><I>"populations"</I></td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/Analysis/Logger[2]" ]
+Logger_0_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Logger</td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/Analysis/Logger[3]" ]
+D_V_0[label="D_V", fillcolor="#d3d247", URL="morph://MorpheusModel/Global/Constant[4]"]
+V_0[label="V", fillcolor="#d3d247",peripheries=2]
+V_e_0[label="V_e", fillcolor="#d3d247", URL="morph://MorpheusModel/Global/Field"]
+V_i_0[label="V_i", fillcolor="#d3d247",peripheries=2]
+V_n_0[label="V_n", fillcolor="#d3d247",peripheries=2]
+b_c2c_0[label="b_c2c", fillcolor="#d3d247", URL="morph://MorpheusModel/Global/Constant[1]"]
+b_cf_0[label="b_cf", fillcolor="#d3d247", URL="morph://MorpheusModel/Global/Constant[0]"]
+c_V_0[label="c_V", fillcolor="#d3d247", URL="morph://MorpheusModel/Global/Constant[2]"]
+cell_center_0[label="cell.center", fillcolor="#b5b426",peripheries=2]
+cell_center_x_0[label="cell.center.x", fillcolor="#d3d247"]
+cell_center_y_0[label="cell.center.y", fillcolor="#d3d247"]
+cell_type_0[label="cell.type", fillcolor="#d3d247",peripheries=2]
+celltype_infected_size_0[label="celltype.infected.size", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[1]"]
+celltype_target_size_0[label="celltype.target.size", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[0]"]
+inf_by_0[label="inf_by", fillcolor="#d3d247",peripheries=2]
+p_i_0[label="p_i", fillcolor="#d3d247", URL="morph://MorpheusModel/Global/Constant[3]"]
+space_0[label="space", fillcolor="#b5b426", URL="morph://MorpheusModel/Space/SpaceSymbol"]
+space_x_0[label="space.x", fillcolor="#d3d247"]
+space_y_0[label="space.y", fillcolor="#d3d247"]
+start_0[label="start", fillcolor="#d3d247", URL="morph://MorpheusModel/Global/Variable"]
+time_0[label="time", fillcolor="#d3d247", URL="morph://MorpheusModel/Time/TimeSymbol"]
+subgraph cluster_1 {
+label="System";
+System_1_0_375[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>System</td></tr>
+<hr/>
+<tr><td>0.375</td></tr></table></font>>, URL="morph://MorpheusModel/Global/System" ]
+}
+subgraph cluster_2 {
+label="System";
+Event_2_0_375[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Event</td></tr>
+<hr/>
+<tr><td>0.375</td></tr></table></font>>, URL="morph://MorpheusModel/Global/Event" ]
+}
+subgraph cluster_3 {
+label="CellType[target]";
+Mapper_3_18225853966436997567_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Mapper</td></tr>
+<tr><td><I>"extracellular viral load"</I></td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/CellTypes/CellType[0]/Mapper" ]
+NeighborhoodReporter_3_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>NeighborhoodReporter</td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/CellTypes/CellType[0]/NeighborhoodReporter" ]
+ChangeCellType_3_7072223307479293093_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>ChangeCellType</td></tr>
+<tr><td><I>"extracellular infection"</I></td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/CellTypes/CellType[0]/ChangeCellType[0]" ]
+ChangeCellType_3_9273603502520842984_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>ChangeCellType</td></tr>
+<tr><td><I>"cell2cell infection"</I></td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/CellTypes/CellType[0]/ChangeCellType[1]" ]
+subgraph cluster_cpm3 {
+label="CPM plugins";
+FreezeMotion_3[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center" >
+  <tr><td>FreezeMotion</td></tr>
+</table></font>>, URL="morph://MorpheusModel/CellTypes/CellType[0]/FreezeMotion"];
+}
+V_3[label="V", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[0]/Property[0]"]
+V_i_3[label="V_i", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[0]/Property[1]"]
+V_n_3[label="V_n", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[0]/Property[2]"]
+cell_center_3[label="cell.center", fillcolor="#b5b426"]
+cell_type_3[label="cell.type", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[0]"]
+inf_by_3[label="inf_by", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[0]/Property[3]"]
+p_c2c_3[label="p_c2c", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[0]/Function[1]"]
+p_cf_3[label="p_cf", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[0]/Function[0]"]
+subgraph cluster_6 {
+label="Function";
+}
+subgraph cluster_7 {
+label="Function";
+}
+}
+subgraph cluster_4 {
+label="CellType[infected]";
+Mapper_4_18225853966436997567_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>Mapper</td></tr>
+<tr><td><I>"extracellular viral load"</I></td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/CellTypes/CellType[1]/Mapper" ]
+NeighborhoodReporter_4_1[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center">
+<tr><td>NeighborhoodReporter</td></tr>
+<hr/>
+<tr><td>1</td></tr></table></font>>, URL="morph://MorpheusModel/CellTypes/CellType[1]/NeighborhoodReporter" ]
+subgraph cluster_cpm4 {
+label="CPM plugins";
+FreezeMotion_4[ shape=plaintext,  margin="0", label=<<font face="times" point-size="15"><table cellborder="0" border="1" cellspacing="0" cellpadding="3" align="center" >
+  <tr><td>FreezeMotion</td></tr>
+</table></font>>, URL="morph://MorpheusModel/CellTypes/CellType[1]/FreezeMotion"];
+}
+V_4[label="V", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[1]/Property[0]"]
+V_i_4[label="V_i", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[1]/Property[1]"]
+V_n_4[label="V_n", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[1]/Property[2]"]
+cell_center_4[label="cell.center", fillcolor="#b5b426"]
+cell_type_4[label="cell.type", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[1]"]
+inf_by_4[label="inf_by", fillcolor="#d3d247", URL="morph://MorpheusModel/CellTypes/CellType[1]/Property[3]"]
+subgraph cluster_5 {
+label="System";
+}
+subgraph cluster_8 {
+label="System";
+}
+}
+subgraph cluster_9 {
+label="CellType[Medium]";
+}
+}
+CPM_0_1 -> FreezeMotion_3 [dir=none, style="dashed", penwidth=1, color="#38568c",lhead=cluster_cpm3] 
+
+CPM_0_1 -> FreezeMotion_4 [dir=none, style="dashed", penwidth=1, color="#38568c",lhead=cluster_cpm4] 
+
+CPM_0_1 -> cell_center_0 [penwidth=3, color="#8f100d"] 
+
+CPM_0_1 -> cell_type_0 [penwidth=3, color="#8f100d"] 
+
+D_V_0 -> Logger_0_1 [penwidth=2, color="#112c5f"] 
+
+Event_2_0_375 -> start_0 [penwidth=3, color="#8f100d"] 
+
+Mapper_3_18225853966436997567_1 -> V_i_3 [penwidth=3, color="#8f100d"] 
+
+Mapper_4_18225853966436997567_1 -> V_i_4 [penwidth=3, color="#8f100d"] 
+
+NeighborhoodReporter_3_1 -> V_n_3 [penwidth=3, color="#8f100d"] 
+
+NeighborhoodReporter_4_1 -> V_n_4 [penwidth=3, color="#8f100d"] 
+
+System_1_0_375 -> V_e_0 [penwidth=3, color="#8f100d"] 
+
+V_0 -> Logger_0_17556842240353386004_1 [penwidth=2, color="#112c5f"] 
+
+V_0 -> Logger_0_6327180780047972750_1 [penwidth=2, color="#112c5f"] 
+
+V_0 -> NeighborhoodReporter_3_1 [penwidth=2, color="#112c5f"] 
+
+V_0 -> NeighborhoodReporter_4_1 [penwidth=2, color="#112c5f"] 
+
+V_0 -> System_1_0_375 [penwidth=2, color="#112c5f"] 
+
+V_0 -> V_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+V_3 -> V_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+V_4 -> V_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+V_e_0 -> Gnuplotter_0_11153385986722193613_100 [penwidth=2, color="#112c5f"] 
+
+V_e_0 -> Mapper_3_18225853966436997567_1 [penwidth=2, color="#112c5f"] 
+
+V_e_0 -> Mapper_4_18225853966436997567_1 [penwidth=2, color="#112c5f"] 
+
+V_i_0 -> Gnuplotter_0_409846930772644971_100 [penwidth=2, color="#112c5f"] 
+
+V_i_0 -> Logger_0_6327180780047972750_1 [penwidth=2, color="#112c5f"] 
+
+V_i_0 -> V_i_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+V_i_3 -> V_i_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+V_i_3 -> p_cf_3 [penwidth=2, color="#112c5f"] 
+
+V_i_4 -> V_i_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+V_n_0 -> Gnuplotter_0_15945025652386054446_100 [penwidth=2, color="#112c5f"] 
+
+V_n_0 -> Logger_0_6327180780047972750_1 [penwidth=2, color="#112c5f"] 
+
+V_n_3 -> V_n_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+V_n_3 -> p_c2c_3 [penwidth=2, color="#112c5f"] 
+
+V_n_4 -> V_n_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+b_c2c_0 -> Logger_0_1 [penwidth=2, color="#112c5f"] 
+
+b_c2c_0 -> p_c2c_3 [penwidth=2, color="#112c5f"] 
+
+b_cf_0 -> Logger_0_1 [penwidth=2, color="#112c5f"] 
+
+b_cf_0 -> p_cf_3 [penwidth=2, color="#112c5f"] 
+
+c_V_0 -> Logger_0_1 [penwidth=2, color="#112c5f"] 
+
+c_V_0 -> System_1_0_375 [penwidth=2, color="#112c5f"] 
+
+cell_center_0 -> ContactLogger_0_1 [penwidth=2, color="#112c5f"] 
+
+cell_center_0 -> cell_center_x_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+cell_center_0 -> cell_center_y_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+cell_center_3 -> Mapper_3_18225853966436997567_1 [penwidth=2, color="#112c5f"] 
+
+cell_center_3 -> NeighborhoodReporter_3_1 [penwidth=2, color="#112c5f"] 
+
+cell_center_3 -> cell_center_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+cell_center_4 -> Mapper_4_18225853966436997567_1 [penwidth=2, color="#112c5f"] 
+
+cell_center_4 -> NeighborhoodReporter_4_1 [penwidth=2, color="#112c5f"] 
+
+cell_center_4 -> cell_center_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+cell_center_x_0 -> Logger_0_6327180780047972750_1 [penwidth=2, color="#112c5f"] 
+
+cell_center_y_0 -> Logger_0_6327180780047972750_1 [penwidth=2, color="#112c5f"] 
+
+cell_type_0 -> Logger_0_6327180780047972750_1 [penwidth=2, color="#112c5f"] 
+
+cell_type_3 -> cell_type_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+cell_type_4 -> cell_type_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+celltype_infected_size_0 -> Logger_0_17325486187087234701_1 [penwidth=2, color="#112c5f"] 
+
+celltype_target_size_0 -> Logger_0_17325486187087234701_1 [penwidth=2, color="#112c5f"] 
+
+inf_by_0 -> Logger_0_6327180780047972750_1 [penwidth=2, color="#112c5f"] 
+
+inf_by_3 -> inf_by_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+inf_by_4 -> inf_by_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+p_c2c_3 -> ChangeCellType_3_9273603502520842984_1 [penwidth=2, color="#112c5f"] 
+
+p_cf_3 -> ChangeCellType_3_7072223307479293093_1 [penwidth=2, color="#112c5f"] 
+
+p_i_0 -> Logger_0_1 [penwidth=2, color="#112c5f"] 
+
+p_i_0 -> System_1_0_375 [penwidth=2, color="#112c5f"] 
+
+space_0 -> space_x_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+space_0 -> space_y_0 [dir=none, style="dashed", penwidth=1, color="#38568c"] 
+
+space_x_0 -> Logger_0_17556842240353386004_1 [penwidth=2, color="#112c5f"] 
+
+space_y_0 -> Logger_0_17556842240353386004_1 [penwidth=2, color="#112c5f"] 
+
+start_0 -> FreezeMotion_3 [penwidth=2, color="#112c5f"] 
+
+start_0 -> FreezeMotion_4 [penwidth=2, color="#112c5f"] 
+
+start_0 -> System_1_0_375 [penwidth=2, color="#112c5f"] 
+
+start_0 -> p_c2c_3 [penwidth=2, color="#112c5f"] 
+
+start_0 -> p_cf_3 [penwidth=2, color="#112c5f"] 
+
+time_0 -> Event_2_0_375 [penwidth=2, color="#112c5f"] 
+
+}
