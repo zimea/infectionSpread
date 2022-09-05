@@ -9,7 +9,7 @@
             <Neighborhood>
                 <Order>1</Order>
             </Neighborhood>
-            <Size symbol="size" value="5, 6,   0.0"/>
+            <Size value="5, 6,   0.0" symbol="size"/>
         </Lattice>
         <SpaceSymbol symbol="space"/>
     </Space>
@@ -19,7 +19,7 @@
         <TimeSymbol symbol="time"/>
     </Time>
     <Analysis>
-        <ModelGraph reduced="false" format="dot" include-tags="#untagged"/>
+        <ModelGraph format="dot" reduced="false" include-tags="#untagged"/>
         <Gnuplotter time-step="100" name="V_n">
             <Plot title="V_n">
                 <Cells value="V_n">
@@ -74,26 +74,26 @@
         </Logger>
     </Analysis>
     <Global>
-        <Constant symbol="b_c2c" value="0.0"/>
-        <Constant symbol="V" value="0.0"/>
+        <Constant value="0.0" symbol="b_c2c"/>
+        <Constant value="0.0" symbol="V"/>
         <Event>
             <Condition>time >= 10</Condition>
             <Rule symbol-ref="start">
                 <Expression>1</Expression>
             </Rule>
         </Event>
-        <Variable symbol="start" value="0" name=""/>
+        <Variable value="0" symbol="start" name=""/>
     </Global>
     <CellTypes>
         <CellType class="biological" name="target">
-            <VolumeConstraint target="3" strength="1"/>
-            <SurfaceConstraint target="1" strength="1" mode="aspherity"/>
+            <VolumeConstraint strength="1" target="3"/>
+            <SurfaceConstraint mode="aspherity" strength="1" target="1"/>
             <ConnectivityConstraint/>
-            <Property symbol="V" value="0"/>
-            <Property symbol="V_n" value="0"/>
+            <Property value="0" symbol="V"/>
+            <Property value="0" symbol="V_n"/>
             <NeighborhoodReporter>
                 <Input value="V" scaling="length" noflux-cell-medium="true"/>
-                <Output mapping="average" symbol-ref="V_n"/>
+                <Output symbol-ref="V_n" mapping="average"/>
             </NeighborhoodReporter>
             <Function symbol="p_c2c">
                 <Expression>1-exp(-b_c2c*V_n*start)</Expression>
@@ -109,22 +109,22 @@
                     </Rule>
                 </Triggers>
             </ChangeCellType>
-            <Property symbol="inf_by" value="0.0"/>
+            <Property value="0.0" symbol="inf_by"/>
             <FreezeMotion>
                 <Condition>start == 1</Condition>
             </FreezeMotion>
         </CellType>
         <CellType class="biological" name="infected">
-            <VolumeConstraint target="3" strength="1"/>
-            <SurfaceConstraint target="1" strength="1" mode="aspherity"/>
+            <VolumeConstraint strength="1" target="3"/>
+            <SurfaceConstraint mode="aspherity" strength="1" target="1"/>
             <ConnectivityConstraint/>
-            <Property symbol="V" value="1"/>
-            <Property symbol="V_n" value="0"/>
+            <Property value="1" symbol="V"/>
+            <Property value="0" symbol="V_n"/>
             <NeighborhoodReporter>
                 <Input value="V" scaling="length" noflux-cell-medium="true"/>
-                <Output mapping="average" symbol-ref="V_n"/>
+                <Output symbol-ref="V_n" mapping="average"/>
             </NeighborhoodReporter>
-            <Property symbol="inf_by" value="0.0"/>
+            <Property value="0.0" symbol="inf_by"/>
             <FreezeMotion>
                 <Condition>start == 1</Condition>
             </FreezeMotion>
@@ -146,11 +146,11 @@
         </MonteCarloSampler>
     </CPM>
     <CellPopulations>
-        <Population size="9" type="target" name="target">
-            <InitDistribute probability="1" number-of-cells="9" mode="random"/>
+        <Population type="target" size="99" name="target">
+            <InitDistribute number-of-cells="9" probability="1" mode="random"/>
         </Population>
-        <Population size="1" type="infected" name="infected">
-            <InitDistribute probability="1" number-of-cells="1" mode="random"/>
+        <Population type="infected" size="1" name="infected">
+            <InitDistribute number-of-cells="1" probability="1" mode="random"/>
         </Population>
     </CellPopulations>
 </MorpheusModel>
